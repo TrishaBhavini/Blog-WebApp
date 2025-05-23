@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+
+<h1>My Blog</h1>
+
+<div class="slider-container">
+  <% posts.forEach(post => { %>
+    <div class="post-card">
+      <h2><%= post.title %></h2>
+      <p><%= post.content %></p>
+      <div class="post-actions">
+        <form action="/delete/<%= post.id %>" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+        <a href="/edit/<%= post.id %>" class="edit-button">Edit</a>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
+<%- include("partials/footer") %>
